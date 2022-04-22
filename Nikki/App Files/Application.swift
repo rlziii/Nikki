@@ -1,14 +1,7 @@
-//
-//  NikkiApp.swift
-//  Nikki
-//
-//  Created by Richard L Zarth III on 4/21/22.
-//
-
 import SwiftUI
 
 @main
-struct NikkiApp: App {
+struct Application: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

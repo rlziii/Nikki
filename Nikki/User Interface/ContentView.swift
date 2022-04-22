@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Nikki
-//
-//  Created by Richard L Zarth III on 4/21/22.
-//
-
 import SwiftUI
 
 struct ContentView: View {
