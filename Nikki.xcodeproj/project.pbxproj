@@ -14,6 +14,7 @@
 		80C6C5112812522F006170A2 /* JournalEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C5102812522F006170A2 /* JournalEntryRowView.swift */; };
 		80C6C514281255A8006170A2 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C513281255A8006170A2 /* JournalEntry.swift */; };
 		80C6C516281255CE006170A2 /* JournalEntryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C515281255CE006170A2 /* JournalEntryListViewModel.swift */; };
+		80C6C51B2812F54E006170A2 /* JournalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C51A2812F54E006170A2 /* JournalDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		80C6C5102812522F006170A2 /* JournalEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryRowView.swift; sourceTree = "<group>"; };
 		80C6C513281255A8006170A2 /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		80C6C515281255CE006170A2 /* JournalEntryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryListViewModel.swift; sourceTree = "<group>"; };
+		80C6C51A2812F54E006170A2 /* JournalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		80C6C50F281249D0006170A2 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				80C6C5192812F543006170A2 /* JournalDetail */,
 				80C6C517281255E3006170A2 /* JournalEntryList */,
 				80C6C518281255F0006170A2 /* JournalEntryRow */,
 			);
@@ -133,6 +136,14 @@
 				80C6C5102812522F006170A2 /* JournalEntryRowView.swift */,
 			);
 			path = JournalEntryRow;
+			sourceTree = "<group>";
+		};
+		80C6C5192812F543006170A2 /* JournalDetail */ = {
+			isa = PBXGroup;
+			children = (
+				80C6C51A2812F54E006170A2 /* JournalDetail.swift */,
+			);
+			path = JournalDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80C6C51B2812F54E006170A2 /* JournalDetail.swift in Sources */,
 				80C6C4E72812491C006170A2 /* JournalEntryListView.swift in Sources */,
 				80C6C516281255CE006170A2 /* JournalEntryListViewModel.swift in Sources */,
 				80C6C4E52812491C006170A2 /* Application.swift in Sources */,
