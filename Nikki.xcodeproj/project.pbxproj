@@ -12,19 +12,10 @@
 		80C6C4E92812491D006170A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C6C4E82812491D006170A2 /* Assets.xcassets */; };
 		80C6C4EC2812491D006170A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C6C4EB2812491D006170A2 /* Preview Assets.xcassets */; };
 		80C6C4F62812491D006170A2 /* NikkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C4F52812491D006170A2 /* NikkiTests.swift */; };
-		80C6C5002812491D006170A2 /* NikkiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C4FF2812491D006170A2 /* NikkiUITests.swift */; };
-		80C6C5022812491D006170A2 /* NikkiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C5012812491D006170A2 /* NikkiUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		80C6C4F22812491D006170A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 80C6C4D92812491C006170A2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 80C6C4E02812491C006170A2;
-			remoteInfo = Nikki;
-		};
-		80C6C4FC2812491D006170A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 80C6C4D92812491C006170A2 /* Project object */;
 			proxyType = 1;
@@ -41,9 +32,6 @@
 		80C6C4EB2812491D006170A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		80C6C4F12812491D006170A2 /* NikkiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NikkiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C6C4F52812491D006170A2 /* NikkiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NikkiTests.swift; sourceTree = "<group>"; };
-		80C6C4FB2812491D006170A2 /* NikkiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NikkiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		80C6C4FF2812491D006170A2 /* NikkiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NikkiUITests.swift; sourceTree = "<group>"; };
-		80C6C5012812491D006170A2 /* NikkiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NikkiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80C6C4F82812491D006170A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -76,7 +57,6 @@
 			children = (
 				80C6C4E32812491C006170A2 /* Nikki */,
 				80C6C4F42812491D006170A2 /* NikkiTests */,
-				80C6C4FE2812491D006170A2 /* NikkiUITests */,
 				80C6C4E22812491C006170A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,7 +66,6 @@
 			children = (
 				80C6C4E12812491C006170A2 /* Nikki.app */,
 				80C6C4F12812491D006170A2 /* NikkiTests.xctest */,
-				80C6C4FB2812491D006170A2 /* NikkiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,15 +95,6 @@
 				80C6C4F52812491D006170A2 /* NikkiTests.swift */,
 			);
 			path = NikkiTests;
-			sourceTree = "<group>";
-		};
-		80C6C4FE2812491D006170A2 /* NikkiUITests */ = {
-			isa = PBXGroup;
-			children = (
-				80C6C4FF2812491D006170A2 /* NikkiUITests.swift */,
-				80C6C5012812491D006170A2 /* NikkiUITestsLaunchTests.swift */,
-			);
-			path = NikkiUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +135,6 @@
 			productReference = 80C6C4F12812491D006170A2 /* NikkiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		80C6C4FA2812491D006170A2 /* NikkiUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 80C6C50B2812491D006170A2 /* Build configuration list for PBXNativeTarget "NikkiUITests" */;
-			buildPhases = (
-				80C6C4F72812491D006170A2 /* Sources */,
-				80C6C4F82812491D006170A2 /* Frameworks */,
-				80C6C4F92812491D006170A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				80C6C4FD2812491D006170A2 /* PBXTargetDependency */,
-			);
-			name = NikkiUITests;
-			productName = NikkiUITests;
-			productReference = 80C6C4FB2812491D006170A2 /* NikkiUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +149,6 @@
 						CreatedOnToolsVersion = 13.3.1;
 					};
 					80C6C4F02812491D006170A2 = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = 80C6C4E02812491C006170A2;
-					};
-					80C6C4FA2812491D006170A2 = {
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = 80C6C4E02812491C006170A2;
 					};
@@ -221,7 +169,6 @@
 			targets = (
 				80C6C4E02812491C006170A2 /* Nikki */,
 				80C6C4F02812491D006170A2 /* NikkiTests */,
-				80C6C4FA2812491D006170A2 /* NikkiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,13 +184,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		80C6C4EF2812491D006170A2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80C6C4F92812491D006170A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,15 +210,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80C6C4F72812491D006170A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80C6C5002812491D006170A2 /* NikkiUITests.swift in Sources */,
-				80C6C5022812491D006170A2 /* NikkiUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -286,11 +217,6 @@
 			isa = PBXTargetDependency;
 			target = 80C6C4E02812491C006170A2 /* Nikki */;
 			targetProxy = 80C6C4F22812491D006170A2 /* PBXContainerItemProxy */;
-		};
-		80C6C4FD2812491D006170A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 80C6C4E02812491C006170A2 /* Nikki */;
-			targetProxy = 80C6C4FC2812491D006170A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -507,42 +433,6 @@
 			};
 			name = Release;
 		};
-		80C6C50C2812491D006170A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 78CW4BPHYV;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rlziii.NikkiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Nikki;
-			};
-			name = Debug;
-		};
-		80C6C50D2812491D006170A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 78CW4BPHYV;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rlziii.NikkiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Nikki;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,15 +459,6 @@
 			buildConfigurations = (
 				80C6C5092812491D006170A2 /* Debug */,
 				80C6C50A2812491D006170A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		80C6C50B2812491D006170A2 /* Build configuration list for PBXNativeTarget "NikkiUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				80C6C50C2812491D006170A2 /* Debug */,
-				80C6C50D2812491D006170A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
