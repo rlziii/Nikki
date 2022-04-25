@@ -77,11 +77,13 @@ struct JournalDetailView: View {
     }
 
     private func setupInitialValues() {
-        titleText = journalEntry?.title ?? ""
-        bodyText = journalEntry?.body ?? ""
-        authorText = journalEntry?.author ?? ""
+        Task { @MainActor in
+            titleText = journalEntry?.title ?? ""
+            bodyText = journalEntry?.body ?? ""
+            authorText = journalEntry?.author ?? ""
 
-        includeAuthor = journalEntry?.author != nil
+            includeAuthor = journalEntry?.author != nil
+        }
     }
 }
 
