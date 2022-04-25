@@ -54,7 +54,13 @@ struct JournalDetailView: View {
             }
         }
         .animation(.default, value: includeAuthor)
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: setupInitialValues)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button("Cancel", action: { dismiss() })
+            }
+        }
     }
 
     private func save() {
@@ -74,6 +80,8 @@ struct JournalDetailView: View {
         titleText = journalEntry?.title ?? ""
         bodyText = journalEntry?.body ?? ""
         authorText = journalEntry?.author ?? ""
+
+        includeAuthor = journalEntry?.author != nil
     }
 }
 
