@@ -47,7 +47,7 @@ struct JournalEntryListView: View {
     private func sheetContent() -> some View {
         NavigationView {
             JournalDetailView(viewModel.detailViewJournalEntry, saveAction: viewModel.add)
-                .navigationTitle("Create Journal Entry")
+                .navigationTitle(viewModel.detailViewSheetNavigationTitle)
         }
     }
 }
