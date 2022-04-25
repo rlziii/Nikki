@@ -3,15 +3,11 @@ import SwiftUI
 struct JournalEntryListView: View {
     @StateObject private var viewModel = JournalEntryListViewModel()
 
-    @State private var detailViewJournalEntry: JournalEntry?
-    @State private var addSheetIsPresented = false
-
     var body: some View {
         List {
             ForEach(viewModel.journalEntries) { journalEntry in
                 Button {
-                    detailViewJournalEntry = journalEntry
-                    addSheetIsPresented = true
+                    viewModel.presentSheet(with: journalEntry.id)
                 } label: {
                     JournalEntryRowView(journalEntry)
                 }
@@ -25,8 +21,8 @@ struct JournalEntryListView: View {
             content: toolbarContent
         )
         .sheet(
-            isPresented: $addSheetIsPresented,
-            onDismiss: onSheetDismiss,
+            isPresented: $viewModel.detailViewSheetIsPresented,
+            onDismiss: viewModel.dismissSheet,
             content: sheetContent
         )
     }
@@ -40,7 +36,7 @@ struct JournalEntryListView: View {
             ToolbarItemGroup(placement: .bottomBar) {
                 Spacer()
                 Button {
-                    addSheetIsPresented = true
+                    viewModel.presentSheet()
                 } label: {
                     Image(systemName: "rectangle.and.pencil.and.ellipsis")
                 }
@@ -50,13 +46,9 @@ struct JournalEntryListView: View {
 
     private func sheetContent() -> some View {
         NavigationView {
-            JournalDetailView(saveAction: viewModel.add)
+            JournalDetailView(viewModel.detailViewJournalEntry, saveAction: viewModel.add)
                 .navigationTitle("Create Journal Entry")
         }
-    }
-
-    private func onSheetDismiss() {
-        detailViewJournalEntry = nil
     }
 }
 

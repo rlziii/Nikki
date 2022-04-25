@@ -4,6 +4,9 @@ import Foundation
 class JournalEntryListViewModel: ObservableObject {
     @Published private(set) var journalEntries: [JournalEntry] = [.preview]
 
+    @Published private(set) var detailViewJournalEntry: JournalEntry?
+    @Published var detailViewSheetIsPresented = false
+
     func add(journalEntry: JournalEntry) {
         journalEntries.append(journalEntry)
     }
@@ -20,5 +23,21 @@ class JournalEntryListViewModel: ObservableObject {
 
     func delete(indexSet: IndexSet) {
         journalEntries.remove(atOffsets: indexSet)
+    }
+
+    func presentSheet(with journalEntryID: UUID? = nil) {
+        if
+            let journalEntryID = journalEntryID,
+            let journalEntry = journalEntries.first(where: { $0.id == journalEntryID })
+        {
+            detailViewJournalEntry = journalEntry
+        }
+
+        detailViewSheetIsPresented = true
+    }
+
+    func dismissSheet() {
+        detailViewJournalEntry = nil
+        detailViewSheetIsPresented = false
     }
 }
