@@ -31,6 +31,7 @@ struct JournalEntryListView: View {
         Group {
             ToolbarItemGroup {
                 EditButton()
+                    .disabled(!viewModel.editButtonEnabled)
             }
 
             ToolbarItemGroup(placement: .bottomBar) {

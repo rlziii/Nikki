@@ -8,6 +8,8 @@ class JournalEntryListViewModel: ObservableObject {
     @Published var detailViewSheetIsPresented = false
     var detailViewSheetNavigationTitle: String { detailViewJournalEntry == nil ? "Create Journal Entry" : "Edit Journal Entry" }
 
+    var editButtonEnabled: Bool { !journalEntries.isEmpty }
+
     func add(journalEntry: JournalEntry) {
         journalEntries.append(journalEntry)
     }
