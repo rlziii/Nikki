@@ -2,7 +2,8 @@ import SwiftUI
 
 struct JournalDetailView: View {
     @StateObject private var viewModel = JournalDetailViewModel()
-    @Environment(\.dismiss) var dismiss
+    @FocusState private var focusTextField: Bool
+    @Environment(\.dismiss) private var dismiss
 
     // Passthrough into view model.
     private let journalEntry: JournalEntry?
@@ -17,6 +18,7 @@ struct JournalDetailView: View {
         Form {
             Section {
                 TextField("Title", text: $viewModel.titleText)
+                    .focused($focusTextField)
             } header: {
                 Text("Title")
             }
@@ -48,10 +50,12 @@ struct JournalDetailView: View {
         .toolbar {
             ToolbarItemGroup(placement: .cancellationAction) {
                 Button("Cancel", action: { dismiss() })
+                    .keyboardShortcut(.cancelAction)
             }
 
             ToolbarItemGroup(placement: .primaryAction) {
                 Button("Save", action: save)
+                    .keyboardShortcut(.defaultAction)
                     .disabled(!viewModel.saveButtonEnabled)
             }
         }
@@ -67,6 +71,12 @@ struct JournalDetailView: View {
             withJournalEntry: journalEntry,
             saveAction: saveAction
         )
+
+        Task { @MainActor in
+            // Delay needed to wait for `onAppear` animation to finish.
+            try await Task.sleep(nanoseconds: 600_000_000)
+            focusTextField = true
+        }
     }
 }
 
