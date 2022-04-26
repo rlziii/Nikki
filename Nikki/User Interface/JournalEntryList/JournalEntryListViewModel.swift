@@ -1,12 +1,13 @@
 import Combine
 import Foundation
+import SwiftUI
 
 class JournalEntryListViewModel: ObservableObject {
     @Published private(set) var journalEntries: [JournalEntry] = [.preview]
 
     @Published private(set) var detailViewJournalEntry: JournalEntry?
     @Published var detailViewSheetIsPresented = false
-    var detailViewSheetNavigationTitle: String { detailViewJournalEntry == nil ? "Create Journal Entry" : "Edit Journal Entry" }
+    var detailViewSheetNavigationTitle: LocalizedStringKey { detailViewJournalEntry == nil ? "Create Journal Entry" : "Edit Journal Entry" }
 
     var editButtonEnabled: Bool { !journalEntries.isEmpty }
 

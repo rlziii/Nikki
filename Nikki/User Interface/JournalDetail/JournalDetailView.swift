@@ -84,7 +84,7 @@ struct JournalDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             JournalDetailView(.preview, saveAction: { _ in /* Do nothing. */})
-                .navigationTitle("Create Journal Entry")
+                .navigationTitle(Text("Create Journal Entry"))
         }
     }
 }

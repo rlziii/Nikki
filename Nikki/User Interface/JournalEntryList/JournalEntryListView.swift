@@ -16,7 +16,7 @@ struct JournalEntryListView: View {
             .onMove(perform: viewModel.move)
             .onDelete(perform: viewModel.delete)
         }
-        .navigationTitle("Journal Entries")
+        .navigationTitle(Text("Journal Entries"))
         .toolbar(
             content: toolbarContent
         )
@@ -48,7 +48,7 @@ struct JournalEntryListView: View {
     private func sheetContent() -> some View {
         NavigationView {
             JournalDetailView(viewModel.detailViewJournalEntry, saveAction: viewModel.addOrUpdate)
-                .navigationTitle(viewModel.detailViewSheetNavigationTitle)
+                .navigationTitle(Text(viewModel.detailViewSheetNavigationTitle))
         }
     }
 }
