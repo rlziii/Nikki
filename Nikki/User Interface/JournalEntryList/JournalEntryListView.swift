@@ -22,7 +22,6 @@ struct JournalEntryListView: View {
         )
         .sheet(
             item: $viewModel.route,
-            onDismiss: viewModel.dismissSheet,
             content: sheetContent
         )
     }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct JournalEntryRowView: View {
-    let journalEntry: JournalEntry
+    private let journalEntry: JournalEntry
 
     init(_ journalEntry: JournalEntry) {
         self.journalEntry = journalEntry

@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import SwiftUI
 
 class JournalEntryListViewModel: ObservableObject {
     @Published private(set) var journalEntries: [JournalEntry] = [.preview]
@@ -13,7 +14,9 @@ class JournalEntryListViewModel: ObservableObject {
         }
     }
 
-    var editButtonEnabled: Bool { !journalEntries.isEmpty }
+    var editButtonEnabled: Bool {
+        !journalEntries.isEmpty
+    }
 
     init(
         journalEntries: [JournalEntry] = .init(),
@@ -24,7 +27,9 @@ class JournalEntryListViewModel: ObservableObject {
     }
 
     func add(journalEntry: JournalEntry) {
-        journalEntries.append(journalEntry)
+        withAnimation {
+            journalEntries.insert(journalEntry, at: 0)
+        }
     }
 
     func update(journalEntry: JournalEntry) {
@@ -56,9 +61,5 @@ class JournalEntryListViewModel: ObservableObject {
                 }
             ))
         }
-    }
-
-    func dismissSheet() {
-        route = nil
     }
 }

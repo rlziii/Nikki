@@ -7,7 +7,7 @@ class JournalDetailViewModel: ObservableObject {
     @Published var includeAuthor: Bool
 
     let initialJournalEntry: JournalEntry?
-    let saveAction: (JournalEntry) -> Void
+    private let saveAction: (JournalEntry) -> Void
 
     init(
         initialJouralEntry: JournalEntry? = nil,
