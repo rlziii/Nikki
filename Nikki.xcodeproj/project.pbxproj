@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8013B45F2816319700E60848 /* JournalDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B45E2816319700E60848 /* JournalDetailViewModel.swift */; };
 		8013B4622817921900E60848 /* UUID+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B4612817921900E60848 /* UUID+Extensions.swift */; };
+		8013B4642817978400E60848 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B4632817978400E60848 /* AppState.swift */; };
+		8013B4662817979500E60848 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B4652817979500E60848 /* AppRoute.swift */; };
 		80C6C4E52812491C006170A2 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C4E42812491C006170A2 /* Application.swift */; };
 		80C6C4E72812491C006170A2 /* JournalEntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C4E62812491C006170A2 /* JournalEntryListView.swift */; };
 		80C6C4E92812491D006170A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C6C4E82812491D006170A2 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		8013B45E2816319700E60848 /* JournalDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailViewModel.swift; sourceTree = "<group>"; };
 		8013B4612817921900E60848 /* UUID+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UUID+Extensions.swift"; sourceTree = "<group>"; };
+		8013B4632817978400E60848 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8013B4652817979500E60848 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		80C6C4E12812491C006170A2 /* Nikki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nikki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C6C4E42812491C006170A2 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		80C6C4E62812491C006170A2 /* JournalEntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryListView.swift; sourceTree = "<group>"; };
@@ -91,8 +95,8 @@
 		80C6C4E32812491C006170A2 /* Nikki */ = {
 			isa = PBXGroup;
 			children = (
-				8013B4602817920C00E60848 /* Extensions */,
 				80C6C50E281249C1006170A2 /* App Files */,
+				8013B4602817920C00E60848 /* Extensions */,
 				80C6C5122812559B006170A2 /* Model */,
 				80C6C50F281249D0006170A2 /* User Interface */,
 			);
@@ -111,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				80C6C4E42812491C006170A2 /* Application.swift */,
+				8013B4652817979500E60848 /* AppRoute.swift */,
+				8013B4632817978400E60848 /* AppState.swift */,
 				80C6C4E82812491D006170A2 /* Assets.xcassets */,
 			);
 			path = "App Files";
@@ -262,11 +268,13 @@
 				80C6C51B2812F54E006170A2 /* JournalDetailView.swift in Sources */,
 				80C6C4E72812491C006170A2 /* JournalEntryListView.swift in Sources */,
 				8013B4622817921900E60848 /* UUID+Extensions.swift in Sources */,
+				8013B4642817978400E60848 /* AppState.swift in Sources */,
 				80C6C516281255CE006170A2 /* JournalEntryListViewModel.swift in Sources */,
 				8013B45F2816319700E60848 /* JournalDetailViewModel.swift in Sources */,
 				80C6C4E52812491C006170A2 /* Application.swift in Sources */,
 				80C6C514281255A8006170A2 /* JournalEntry.swift in Sources */,
 				80C6C5112812522F006170A2 /* JournalEntryRowView.swift in Sources */,
+				8013B4662817979500E60848 /* AppRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

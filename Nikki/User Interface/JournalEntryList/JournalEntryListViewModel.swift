@@ -1,12 +1,11 @@
 import Combine
 import Foundation
-import SwiftUI
 
 class JournalEntryListViewModel: ObservableObject {
     @Published private(set) var journalEntries: [JournalEntry] = [.preview]
     @Published var route: AppRoute?
 
-    var detailViewSheetNavigationTitle: LocalizedStringKey {
+    var detailViewSheetNavigationTitle: String {
         switch route {
         case .detail(let viewModel) where viewModel.initialJournalEntry != nil:
             return "Edit Journal Entry"
