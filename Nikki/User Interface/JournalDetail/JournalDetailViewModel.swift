@@ -1,13 +1,26 @@
 import Combine
 
 class JournalDetailViewModel: ObservableObject {
-    @Published var titleText = ""
-    @Published var bodyText = ""
-    @Published var authorText = ""
-    @Published var includeAuthor = false
+    @Published var titleText: String
+    @Published var bodyText: String
+    @Published var authorText: String
+    @Published var includeAuthor: Bool
 
-    var initialJournalEntry: JournalEntry?
-    var saveAction: ((JournalEntry) -> Void)?
+    let initialJournalEntry: JournalEntry?
+    let saveAction: (JournalEntry) -> Void
+
+    init(
+        initialJouralEntry: JournalEntry? = nil,
+        saveAction: @escaping (JournalEntry) -> Void
+    ) {
+        self.initialJournalEntry = initialJouralEntry
+        self.saveAction = saveAction
+
+        self.titleText = initialJournalEntry?.title ?? ""
+        self.bodyText = initialJournalEntry?.body ?? ""
+        self.authorText = initialJournalEntry?.author ?? ""
+        self.includeAuthor = initialJournalEntry?.author != nil
+    }
 
     var saveButtonEnabled: Bool {
         let titleTextIsValid = !titleText.isEmpty
@@ -26,16 +39,6 @@ class JournalDetailViewModel: ObservableObject {
         return titleTextIsValid && bodyTextIsValid && authorTextIsValid && changesMade
     }
 
-    func configure(withJournalEntry initialJournalEntry: JournalEntry?, saveAction: @escaping (JournalEntry) -> Void) {
-        self.initialJournalEntry = initialJournalEntry
-        self.saveAction = saveAction
-
-        titleText = initialJournalEntry?.title ?? ""
-        bodyText = initialJournalEntry?.body ?? ""
-        authorText = initialJournalEntry?.author ?? ""
-        includeAuthor = initialJournalEntry?.author != nil
-    }
-
     func save() {
         let journalEntry = JournalEntry(
             id: initialJournalEntry?.id ?? .init(),
@@ -45,6 +48,6 @@ class JournalDetailViewModel: ObservableObject {
             author: includeAuthor ? authorText : nil
         )
 
-        saveAction?(journalEntry)
+        saveAction(journalEntry)
     }
 }

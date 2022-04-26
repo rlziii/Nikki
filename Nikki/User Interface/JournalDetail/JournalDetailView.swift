@@ -1,18 +1,9 @@
 import SwiftUI
 
 struct JournalDetailView: View {
-    @StateObject private var viewModel = JournalDetailViewModel()
+    @ObservedObject var viewModel: JournalDetailViewModel
     @FocusState private var focusTextField: Bool
     @Environment(\.dismiss) private var dismiss
-
-    // Passthrough into view model.
-    private let journalEntry: JournalEntry?
-    private let saveAction: (JournalEntry) -> Void
-
-    init(_ journalEntry: JournalEntry? = nil, saveAction: @escaping (JournalEntry) -> Void) {
-        self.journalEntry = journalEntry
-        self.saveAction = saveAction
-    }
 
     var body: some View {
         Form {
@@ -67,11 +58,6 @@ struct JournalDetailView: View {
     }
 
     private func configure() {
-        viewModel.configure(
-            withJournalEntry: journalEntry,
-            saveAction: saveAction
-        )
-
         Task { @MainActor in
             // Delay needed to wait for `onAppear` animation to finish.
             try await Task.sleep(nanoseconds: 600_000_000)
@@ -83,8 +69,10 @@ struct JournalDetailView: View {
 struct JournalDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            JournalDetailView(.preview, saveAction: { _ in /* Do nothing. */})
-                .navigationTitle(Text("Create Journal Entry"))
+            JournalDetailView(
+                viewModel: .init(saveAction: { _ in })
+            )
+            .navigationTitle(Text("Create Journal Entry"))
         }
     }
 }

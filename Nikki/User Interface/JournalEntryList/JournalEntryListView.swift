@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct JournalEntryListView: View {
-    @StateObject private var viewModel = JournalEntryListViewModel()
+    @ObservedObject var viewModel: JournalEntryListViewModel
 
     var body: some View {
         List {
@@ -21,7 +21,7 @@ struct JournalEntryListView: View {
             content: toolbarContent
         )
         .sheet(
-            isPresented: $viewModel.detailViewSheetIsPresented,
+            item: $viewModel.route,
             onDismiss: viewModel.dismissSheet,
             content: sheetContent
         )
@@ -45,10 +45,13 @@ struct JournalEntryListView: View {
         }
     }
 
-    private func sheetContent() -> some View {
-        NavigationView {
-            JournalDetailView(viewModel.detailViewJournalEntry, saveAction: viewModel.addOrUpdate)
-                .navigationTitle(Text(viewModel.detailViewSheetNavigationTitle))
+    @ViewBuilder private func sheetContent(route: AppRoute) -> some View {
+        switch route {
+        case .detail(let journalDetailViewModel):
+            NavigationView {
+                JournalDetailView(viewModel: journalDetailViewModel)
+                    .navigationTitle(Text(viewModel.detailViewSheetNavigationTitle))
+            }
         }
     }
 }
@@ -56,7 +59,7 @@ struct JournalEntryListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            JournalEntryListView()
+            JournalEntryListView(viewModel: .init(journalEntries: [.preview]))
         }
     }
 }

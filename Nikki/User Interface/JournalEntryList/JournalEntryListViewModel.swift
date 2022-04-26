@@ -4,12 +4,26 @@ import SwiftUI
 
 class JournalEntryListViewModel: ObservableObject {
     @Published private(set) var journalEntries: [JournalEntry] = [.preview]
+    @Published var route: AppRoute?
 
-    @Published private(set) var detailViewJournalEntry: JournalEntry?
-    @Published var detailViewSheetIsPresented = false
-    var detailViewSheetNavigationTitle: LocalizedStringKey { detailViewJournalEntry == nil ? "Create Journal Entry" : "Edit Journal Entry" }
+    var detailViewSheetNavigationTitle: LocalizedStringKey {
+        switch route {
+        case .detail(let viewModel) where viewModel.initialJournalEntry != nil:
+            return "Edit Journal Entry"
+        default:
+            return "Create Journal Entry"
+        }
+    }
 
     var editButtonEnabled: Bool { !journalEntries.isEmpty }
+
+    init(
+        journalEntries: [JournalEntry] = .init(),
+        route: AppRoute? = nil
+    ) {
+        self.journalEntries = journalEntries
+        self.route = route
+    }
 
     func add(journalEntry: JournalEntry) {
         journalEntries.append(journalEntry)
@@ -18,14 +32,6 @@ class JournalEntryListViewModel: ObservableObject {
     func update(journalEntry: JournalEntry) {
         if let index = journalEntries.firstIndex(where: { $0.id == journalEntry.id }) {
             journalEntries[index] = journalEntry
-        }
-    }
-
-    func addOrUpdate(journalEntry: JournalEntry) {
-        if journalEntries.map(\.id).contains(journalEntry.id) {
-            update(journalEntry: journalEntry)
-        } else {
-            add(journalEntry: journalEntry)
         }
     }
 
@@ -38,18 +44,23 @@ class JournalEntryListViewModel: ObservableObject {
     }
 
     func presentSheet(with journalEntryID: UUID? = nil) {
-        if
-            let journalEntryID = journalEntryID,
-            let journalEntry = journalEntries.first(where: { $0.id == journalEntryID })
-        {
-            detailViewJournalEntry = journalEntry
+        if let id = journalEntryID, let journalEntry = journalEntries.first(where: { $0.id == id }) {
+            route = .detail(.init(
+                initialJouralEntry: journalEntry,
+                saveAction: { [weak self] in
+                    self?.update(journalEntry: $0)
+                }
+            ))
+        } else {
+            route = .detail(.init(
+                saveAction: { [weak self] in
+                    self?.add(journalEntry: $0)
+                }
+            ))
         }
-
-        detailViewSheetIsPresented = true
     }
 
     func dismissSheet() {
-        detailViewJournalEntry = nil
-        detailViewSheetIsPresented = false
+        route = nil
     }
 }
