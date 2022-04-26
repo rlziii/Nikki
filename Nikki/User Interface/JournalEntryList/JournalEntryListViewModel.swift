@@ -6,10 +6,9 @@ class JournalEntryListViewModel: ObservableObject {
     @Published var route: AppRoute?
 
     var detailViewSheetNavigationTitle: String {
-        switch route {
-        case .detail(let viewModel) where viewModel.initialJournalEntry != nil:
+        if case let .detail(viewModel) = route, viewModel.initialJournalEntry != nil {
             return "Edit Journal Entry"
-        default:
+        } else {
             return "Create Journal Entry"
         }
     }
