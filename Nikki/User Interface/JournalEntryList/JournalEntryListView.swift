@@ -59,7 +59,7 @@ struct JournalEntryListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            JournalEntryListView(viewModel: .init(journalEntries: [.preview]))
+            JournalEntryListView(viewModel: .init(journalEntries: .previews))
         }
     }
 }

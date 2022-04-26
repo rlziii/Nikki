@@ -30,6 +30,8 @@ extension JournalEntry {
         author: "John Appleseed"
     )
 
+    // From: Alice's Adventures in Wonderland by Lewis Carroll
+
     static let preview1 = JournalEntry(
         id: UUID(repeating: "1")!,
         title: "Down the Rabbit Hole",
@@ -101,8 +103,45 @@ extension JournalEntry {
         date: Date(timeIntervalSince1970: -3286465438),
         author: "Lewis Carroll"
     )
+
+    static let preview10 = JournalEntry(
+        id: UUID(repeating: "A")!,
+        title: "The Lobster Quadrille",
+        body: "The Mock Turtle sighed deeply, and drew the back of one flapper across his eyes. He looked at Alice, and tried to speak, but for a minute or two sobs choked his voice. 'Same as if he had a bone in his throat,' said the Gryphon: and it set to work shaking him and punching him in the back. At last the Mock Turtle recovered his voice, and, with tears running down his cheeks, he went on again:—",
+        date: Date(timeIntervalSince1970: -3286465438),
+        author: "Lewis Carroll"
+    )
+
+    static let preview11 = JournalEntry(
+        id: UUID(repeating: "B")!,
+        title: "Who Stole the Tarts?",
+        body: "The King and Queen of Hearts were seated on their throne when they arrived, with a great crowd assembled about them—all sorts of little birds and beasts, as well as the whole pack of cards: the Knave was standing before them, in chains, with a soldier on each side to guard him; and near the King was the White Rabbit, with a trumpet in one hand, and a scroll of parchment in the other. In the very middle of the court was a table, with a large dish of tarts upon it: they looked so good, that it made Alice quite hungry to look at them—'I wish they'd get the trial done,' she thought, 'and hand round the refreshments!' But there seemed to be no chance of this, so she began looking at everything about her, to pass away the time.",
+        date: Date(timeIntervalSince1970: -3286465438),
+        author: "Lewis Carroll"
+    )
+
+    static let preview12 = JournalEntry(
+        id: UUID(repeating: "C")!,
+        title: "Alice's Evidence",
+        body: "'Here!' cried Alice, quite forgetting in the flurry of the moment how large she had grown in the last few minutes, and she jumped up in such a hurry that she tipped over the jury-box with the edge of her skirt, upsetting all the jurymen on to the heads of the crowd below, and there they lay sprawling about, reminding her very much of a globe of goldfish she had accidentally upset the week before.",
+        date: Date(timeIntervalSince1970: -3286465438),
+        author: "Lewis Carroll"
+    )
 }
 
 extension Array where Element == JournalEntry {
-    static let previews: [JournalEntry] = [.preview1, .preview2, .preview3, .preview4, .preview5, .preview6, .preview7, .preview8, .preview9]
+    static let previews: [JournalEntry] = [
+        .preview1,
+        .preview2,
+        .preview3,
+        .preview4,
+        .preview5,
+        .preview6,
+        .preview7,
+        .preview8,
+        .preview9,
+        .preview10,
+        .preview11,
+        .preview12,
+    ]
 }

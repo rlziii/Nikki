@@ -33,5 +33,6 @@ struct JournalEntryRowView: View {
 struct JournalEntryRowView_Previews: PreviewProvider {
     static var previews: some View {
         JournalEntryRowView(.preview)
+            .previewLayout(.sizeThatFits)
     }
 }
