@@ -12,6 +12,8 @@
 		8013B4642817978400E60848 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B4632817978400E60848 /* AppState.swift */; };
 		8013B4662817979500E60848 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B4652817979500E60848 /* AppRoute.swift */; };
 		8013B4692818D43000E60848 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B4682818D43000E60848 /* SettingsView.swift */; };
+		8013B46B2818F98B00E60848 /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B46A2818F98B00E60848 /* SettingsStorage.swift */; };
+		8013B46D2818F9A800E60848 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013B46C2818F9A800E60848 /* SettingsViewModel.swift */; };
 		80C6C4E52812491C006170A2 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C4E42812491C006170A2 /* Application.swift */; };
 		80C6C4E72812491C006170A2 /* JournalEntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C6C4E62812491C006170A2 /* JournalEntryListView.swift */; };
 		80C6C4E92812491D006170A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C6C4E82812491D006170A2 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		8013B4632817978400E60848 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8013B4652817979500E60848 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		8013B4682818D43000E60848 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8013B46A2818F98B00E60848 /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
+		8013B46C2818F9A800E60848 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		80C6C4E12812491C006170A2 /* Nikki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nikki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C6C4E42812491C006170A2 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		80C6C4E62812491C006170A2 /* JournalEntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryListView.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				8013B4682818D43000E60848 /* SettingsView.swift */,
+				8013B46C2818F9A800E60848 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 				8013B4652817979500E60848 /* AppRoute.swift */,
 				8013B4632817978400E60848 /* AppState.swift */,
 				80C6C4E82812491D006170A2 /* Assets.xcassets */,
+				8013B46A2818F98B00E60848 /* SettingsStorage.swift */,
 			);
 			path = "App Files";
 			sourceTree = "<group>";
@@ -278,11 +284,13 @@
 			files = (
 				80C6C51B2812F54E006170A2 /* JournalDetailView.swift in Sources */,
 				80C6C4E72812491C006170A2 /* JournalEntryListView.swift in Sources */,
+				8013B46B2818F98B00E60848 /* SettingsStorage.swift in Sources */,
 				8013B4622817921900E60848 /* UUID+Extensions.swift in Sources */,
 				8013B4642817978400E60848 /* AppState.swift in Sources */,
 				80C6C516281255CE006170A2 /* JournalEntryListViewModel.swift in Sources */,
 				8013B45F2816319700E60848 /* JournalDetailViewModel.swift in Sources */,
 				80C6C4E52812491C006170A2 /* Application.swift in Sources */,
+				8013B46D2818F9A800E60848 /* SettingsViewModel.swift in Sources */,
 				80C6C514281255A8006170A2 /* JournalEntry.swift in Sources */,
 				80C6C5112812522F006170A2 /* JournalEntryRowView.swift in Sources */,
 				8013B4662817979500E60848 /* AppRoute.swift in Sources */,

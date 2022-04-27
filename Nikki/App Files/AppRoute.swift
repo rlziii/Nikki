@@ -2,7 +2,7 @@ import Foundation
 
 enum AppRoute: Identifiable {
     case detail(JournalDetailViewModel)
-    case settings
+    case settings(SettingsViewModel)
 
     var id: String {
         switch self {

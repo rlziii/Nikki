@@ -1,16 +1,7 @@
 import SwiftUI
 
-class SettingsViewModel: ObservableObject {
-    @Published var simpleRowsEnabled = false
-    @Published var defaultAuthorName = ""
-
-    let appURL = URL(string: "https://github.com/rlziii/Nikki")!
-    let versionNumber = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-    let buildNumber = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
-}
-
 struct SettingsView: View {
-    @StateObject private var viewModel = SettingsViewModel()
+    @ObservedObject var viewModel: SettingsViewModel
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -37,15 +28,29 @@ struct SettingsView: View {
         }
         .navigationTitle(Text("Settings"))
         .navigationBarTitleDisplayMode(.inline)
+        .task(viewModel.loadSettings)
         .toolbar {
             ToolbarItemGroup(placement: .cancellationAction) {
                 Button("Cancel", action: { dismiss() })
                     .keyboardShortcut(.cancelAction)
             }
+
+            ToolbarItemGroup(placement: .primaryAction) {
+                Button("Save", action: save)
+                    .disabled(!viewModel.saveButtonEnabled)
+                    .keyboardShortcut(.defaultAction)
+            }
         }
     }
 
-    func versionAndBuildInfoFooter() -> some View {
+    private func save() {
+        Task {
+            await viewModel.saveChanges()
+            dismiss()
+        }
+    }
+
+    private func versionAndBuildInfoFooter() -> some View {
         HStack {
             HStack(spacing: 0) {
                 Text("Version number: ")
@@ -65,7 +70,7 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SettingsView()
+            SettingsView(viewModel: .init(storage: .init()))
         }
         .navigationTitle(Text("Settings"))
     }

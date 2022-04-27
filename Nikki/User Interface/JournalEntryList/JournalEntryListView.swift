@@ -60,9 +60,9 @@ struct JournalEntryListView: View {
             NavigationView {
                 JournalDetailView(viewModel: journalDetailViewModel)
             }
-        case .settings:
+        case .settings(let settingsViewModel):
             NavigationView {
-                SettingsView()
+                SettingsView(viewModel: settingsViewModel)
             }
         }
     }
@@ -71,7 +71,12 @@ struct JournalEntryListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            JournalEntryListView(viewModel: .init(journalEntries: .previews))
+            JournalEntryListView(
+                viewModel: .init(
+                    journalEntries: .previews,
+                    settingsStorage: .init()
+                )
+            )
         }
     }
 }

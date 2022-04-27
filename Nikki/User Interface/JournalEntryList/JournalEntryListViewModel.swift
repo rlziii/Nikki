@@ -7,6 +7,7 @@ import SwiftUI
 class JournalEntryListViewModel: ObservableObject {
     @Published private(set) var journalEntries: [JournalEntry] = [.preview]
     @Published var route: AppRoute?
+    let settingsStorage: SettingsStorage
 
     var editButtonEnabled: Bool {
         !journalEntries.isEmpty
@@ -14,10 +15,12 @@ class JournalEntryListViewModel: ObservableObject {
 
     init(
         journalEntries: [JournalEntry] = .init(),
-        route: AppRoute? = nil
+        route: AppRoute? = nil,
+        settingsStorage: SettingsStorage
     ) {
         self.journalEntries = journalEntries
         self.route = route
+        self.settingsStorage = settingsStorage
     }
 
     func add(journalEntry: JournalEntry) {
@@ -60,6 +63,6 @@ class JournalEntryListViewModel: ObservableObject {
     }
 
     func showSettings() {
-        route = .settings
+        route = .settings(.init(storage: settingsStorage))
     }
 }
