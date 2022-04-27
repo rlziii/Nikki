@@ -14,10 +14,10 @@ class JournalDetailViewModel: ObservableObject {
     private let saveAction: (JournalEntry) -> Void
 
     init(
-        initialJouralEntry: JournalEntry? = nil,
+        initialJournalEntry: JournalEntry? = nil,
         saveAction: @escaping (JournalEntry) -> Void
     ) {
-        self.initialJournalEntry = initialJouralEntry
+        self.initialJournalEntry = initialJournalEntry
         self.saveAction = saveAction
 
         self.titleText = initialJournalEntry?.title ?? ""

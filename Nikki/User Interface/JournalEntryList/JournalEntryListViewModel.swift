@@ -46,7 +46,7 @@ class JournalEntryListViewModel: ObservableObject {
     func editJournalEntry(with id: UUID) {
         if let journalEntry = journalEntries.first(where: { $0.id == id }) {
             route = .detail(.init(
-                initialJouralEntry: journalEntry,
+                initialJournalEntry: journalEntry,
                 saveAction: { [weak self] in
                     self?.update(journalEntry: $0)
                 }
