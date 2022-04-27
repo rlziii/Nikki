@@ -26,7 +26,7 @@ struct JournalEntryRowView: View {
                 Text(journalEntry.date, format: .dateTime)
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
-        }
+        }.padding(.vertical)
     }
 }
 

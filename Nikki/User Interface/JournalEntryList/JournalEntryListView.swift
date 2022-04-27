@@ -7,12 +7,13 @@ struct JournalEntryListView: View {
         List {
             ForEach(viewModel.journalEntries) { journalEntry in
                 Button {
-                    viewModel.presentSheet(with: journalEntry.id)
+                    viewModel.editJournalEntry(with: journalEntry.id)
                 } label: {
                     JournalEntryRowView(journalEntry)
                 }
-                .buttonStyle(.plain)
+                .tint(.primary)
             }
+
             .onMove(perform: viewModel.move)
             .onDelete(perform: viewModel.delete)
         }
@@ -28,7 +29,16 @@ struct JournalEntryListView: View {
 
     private func toolbarContent() -> some ToolbarContent {
         Group {
-            ToolbarItemGroup {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                Button {
+                    viewModel.showSettings()
+                } label: {
+                    Image(systemName: "gear")
+                }
+
+            }
+
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 EditButton()
                     .disabled(!viewModel.editButtonEnabled)
             }
@@ -36,7 +46,7 @@ struct JournalEntryListView: View {
             ToolbarItemGroup(placement: .bottomBar) {
                 Spacer()
                 Button {
-                    viewModel.presentSheet()
+                    viewModel.addJournalEntry()
                 } label: {
                     Image(systemName: "rectangle.and.pencil.and.ellipsis")
                 }
@@ -49,7 +59,10 @@ struct JournalEntryListView: View {
         case .detail(let journalDetailViewModel):
             NavigationView {
                 JournalDetailView(viewModel: journalDetailViewModel)
-                    .navigationTitle(Text(viewModel.detailViewSheetNavigationTitle))
+            }
+        case .settings:
+            NavigationView {
+                SettingsView()
             }
         }
     }

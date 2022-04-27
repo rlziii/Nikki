@@ -6,6 +6,10 @@ class JournalDetailViewModel: ObservableObject {
     @Published var authorText: String
     @Published var includeAuthor: Bool
 
+    var navigationTitle: String {
+        initialJournalEntry == nil ? "Create Journal Entry" : "Edit Journal Entry"
+    }
+
     let initialJournalEntry: JournalEntry?
     private let saveAction: (JournalEntry) -> Void
 

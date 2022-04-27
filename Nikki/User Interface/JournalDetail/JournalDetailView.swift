@@ -36,6 +36,7 @@ struct JournalDetailView: View {
             }
         }
         .animation(.default, value: viewModel.includeAuthor)
+        .navigationTitle(Text(LocalizedStringKey(viewModel.navigationTitle)))
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: configure)
         .toolbar {

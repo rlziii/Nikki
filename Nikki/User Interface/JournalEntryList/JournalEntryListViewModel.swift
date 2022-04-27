@@ -1,18 +1,12 @@
 import Combine
 import Foundation
+
+// For `withAnimation(_:_:)`
 import SwiftUI
 
 class JournalEntryListViewModel: ObservableObject {
     @Published private(set) var journalEntries: [JournalEntry] = [.preview]
     @Published var route: AppRoute?
-
-    var detailViewSheetNavigationTitle: String {
-        if case let .detail(viewModel) = route, viewModel.initialJournalEntry != nil {
-            return "Edit Journal Entry"
-        } else {
-            return "Create Journal Entry"
-        }
-    }
 
     var editButtonEnabled: Bool {
         !journalEntries.isEmpty
@@ -46,20 +40,26 @@ class JournalEntryListViewModel: ObservableObject {
         journalEntries.remove(atOffsets: indexSet)
     }
 
-    func presentSheet(with journalEntryID: UUID? = nil) {
-        if let id = journalEntryID, let journalEntry = journalEntries.first(where: { $0.id == id }) {
+    func editJournalEntry(with id: UUID) {
+        if let journalEntry = journalEntries.first(where: { $0.id == id }) {
             route = .detail(.init(
                 initialJouralEntry: journalEntry,
                 saveAction: { [weak self] in
                     self?.update(journalEntry: $0)
                 }
             ))
-        } else {
-            route = .detail(.init(
-                saveAction: { [weak self] in
-                    self?.add(journalEntry: $0)
-                }
-            ))
         }
+    }
+
+    func addJournalEntry() {
+        route = .detail(.init(
+            saveAction: { [weak self] in
+                self?.add(journalEntry: $0)
+            }
+        ))
+    }
+
+    func showSettings() {
+        route = .settings
     }
 }
